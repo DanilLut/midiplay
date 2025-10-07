@@ -1,0 +1,228 @@
+/* roboto-latin-400-normal */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/roboto@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/roboto@latest/latin-400-normal.woff) format('woff');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* roboto-latin-600-normal */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/roboto@latest/latin-600-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/roboto@latest/latin-600-normal.woff) format('woff');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+body {
+  background-color: #111111;
+  color: #D9D9D9;
+  font-family: 'Roboto', "Century Gothic", "CenturyGothic", AppleGothic, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.keyboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  /* padding-bottom: 100px; */
+  height: 100vh;
+  margin-top: -620px;
+  font-weight: bold;
+}
+
+.header-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111111;
+}
+
+#progressIndicator {
+  position: absolute;
+}
+
+/* Reset and base styles */
+/* * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+} */
+
+/* Top action buttons */
+.header-container > button,
+.header-container > input[type="file"] {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Style the file selector button */
+input[type="file"]::file-selector-button {
+  /* Customize appearance */
+  background-color: #1a1a1a; /* Example background color */
+  color: #d9d9d9; /* Example text color */
+  padding: 8px 16px; /* Example padding */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Indicate it's clickable */
+  font-size: 16px; /* Example font size */
+}
+
+/* Add hover effects for interactivity */
+input[type="file"]::file-selector-button:hover {
+  background-color: #4f46e5; /* Darker background on hover */
+}
+
+/* File input styling */
+#midiFile {
+  color: #7a73fd !important;
+  border: 2px dashed #2a2a2a !important;
+  padding: 0.75rem !important;
+  background-color: transparent;
+}
+
+#midiFile:hover {
+  border-color: #4f46e5 !important;
+  background: rgba(79, 70, 229, 0.05) !important;
+}
+
+/* Hint text */
+small {
+  color: #6b7280;
+  font-style: italic;
+  margin-left: 1rem;
+}
+
+#currentNote {
+  color: #4f46e5;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+/* Progress indicator */
+#progressIndicator {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: none;
+}
+
+#progressIndicator.active {
+  display: block;
+}
+
+#progressBar {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+#progressBar::-webkit-progress-bar {
+  background-color: rgba(209, 213, 219, 0.5);
+  border-radius: 4px;
+}
+
+#progressBar::-webkit-progress-value {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  border-radius: 4px;
+}
+
+/* Control groups */
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.control-group > label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Input styling */
+input[type="number"],
+input[type="color"] {
+  border: none;
+  color: #d9d9d9;
+  padding: 0.5rem 0.75rem;
+  background: #1a1a1a;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+input[type="color"] {
+  width: 50px;
+  height: 40px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #4f46e5;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 6px;
+  background: linear-gradient(90deg, #e5e7eb, #d1d5db);
+  border-radius: 3px;
+  outline: none;
+  /* flex: 1; */
+  min-width: 120px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

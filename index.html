@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tone.js MIDI Player</title>
+  <style>
+    .control-group { margin: 5px 0; }
+    .control-group label { margin-right: 10px; }
+    #progressIndicator {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-container">
+    <input type="file" id="midiFile" accept=".mid,.midi">
+    <button id="playBtn">Play MIDI</button>
+    <button id="generateBtn">Generate Frames</button>
+    <p class="current-notes">Current Note: <span id="currentNote">None</span></p>
+
+    <!-- Progress Indicator -->
+    <div id="progressIndicator">
+      <p>Generating frames... <span id="progressText">0%</span></p>
+      <progress id="progressBar" value="0" max="100"></progress>
+    </div>
+
+    <!-- Controls -->
+    <div style="margin:10px 0; padding:10px;" class="controls-container">
+      <div class="control-group">
+        <label>White Key Width:</label>
+        <input type="number" id="whiteWidth" value="22" min="10">
+        <input type="range" id="whiteWidthRange" value="22" min="10" max="100">
+      </div>
+      <div class="control-group">
+        <label>Black Key Width:</label>
+        <input type="number" id="blackWidth" value="16" min="6">
+        <input type="range" id="blackWidthRange" value="16" min="6" max="80">
+      </div>
+      <div class="control-group">
+        <label>White Key Height:</label>
+        <input type="number" id="whiteHeight" value="69" min="40">
+        <input type="range" id="whiteHeightRange" value="69" min="40" max="200">
+      </div>
+      <div class="control-group">
+        <label>Black Key Height:</label>
+        <input type="number" id="blackHeight" value="42" min="20">
+        <input type="range" id="blackHeightRange" value="42" min="20" max="200">
+      </div>
+      <div class="control-group">
+        <label>Highlight Color: <input type="color" id="highlightColor" value="#ff4dac"></label>
+      </div>
+      <div class="control-group">
+        <label><input type="checkbox" id="linkSizes" checked> Link White & Black Key Sizes</label>
+      </div>
+      <div class="control-group">
+        <label><input type="checkbox" id="showLabels" checked> Show Note Names</label>
+        <label><input type="checkbox" id="showCOnlyLabels" checked> Show C-Notes Only</label>
+        <label>Font Size: <input type="number" id="labelFontSize" value="14" min="6" max="24"></label>
+      </div>
+      <div class="control-group">
+        <label>Number of Octaves:
+          <input type="number" id="octavesAmount" value="5" min="1" max="7">
+        </label>
+        <label>Starting Octave:
+          <input type="number" id="startingOctave" value="3" min="0" max="7">
+        </label>
+      </div>
+      <div class="control-group">
+        <label>Frame Rate (FPS):
+          <input type="number" id="frameRate" value="30" min="1" max="60">
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="keyboard-container">
+    <svg id="keyboard" xmlns="http://www.w3.org/2000/svg" width="1538" height="130" viewBox="0 0 1538 130" fill="none"></svg>
+  </div>
+
+  <!-- Add Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
